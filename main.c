@@ -32,7 +32,22 @@ int main() {
   print_list(start);
   printf("Should be null now:\n" );
   print_list(free_list(start));
-  
+  print_list(start);
+  start = make_school(rand(),"number 1");
+  for (counter = 2; counter < 10; counter++){
+    sprintf(number, "%d", counter);
+    start = insert_front(start, "test", rand());
+  }
+  start = insert_front(start, "target", rand());
+  for (counter = 2; counter < 10; counter++){
+    sprintf(number, "%d", counter);
+    start = insert_front(start, "test", rand());
+  }
+  print_list(start);
+  // printf("before stagfall\n");
+  start = remove_node(start, "target");
+  // printf("after stagfall\n");
+
   print_list(start);
   return 0;
 }

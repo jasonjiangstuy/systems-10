@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
 #include "schoollist.h"
 
 
@@ -45,5 +47,31 @@ struct school_node * make_school(int pop, char *nam) {
   struct school_node *n = malloc(sizeof(struct school_node));
   n->name = nam;
   n->population = pop;
+  n->next = NULL;
   return n;
+}
+
+// WIP
+struct school_node * remove_node(struct school_node *front, char* data){
+  struct school_node * target = front;
+  struct school_node * previous;
+  while (target) {
+    // printf("before stagfallinside\n");
+    // introduceSchool(target);
+    if (strcmp(target -> name, data) == 0){
+      // printf("after stagfall\n");
+      if (previous){
+        previous -> next = target -> next;
+        free(target);
+      }else{
+        free(target);
+      }
+      return front;
+    }
+    previous = target;
+    target = target-> next;
+
+  }
+  return front;
+
 }

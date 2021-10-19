@@ -13,4 +13,6 @@ struct school_node * make_school(int population, char *name);
 void print_list(struct school_node *p);
 struct school_node * insert_front(struct school_node *start , char * name, int population);
 struct school_node * free_list(struct school_node *start);
+struct school_node * remove_node(struct school_node *front, char* data);
+
 #endif
